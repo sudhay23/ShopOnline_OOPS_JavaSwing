@@ -1,0 +1,5 @@
+ProductID:1
+ProductName:phillps trimmer
+productPrice:100
+ProductStock:12
+productDescription:shave nicely

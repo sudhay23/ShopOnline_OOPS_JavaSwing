@@ -1,0 +1,5 @@
+ProductID:2
+ProductName:brush colgate
+productPrice:10
+ProductStock:100
+productDescription:brush nicely
