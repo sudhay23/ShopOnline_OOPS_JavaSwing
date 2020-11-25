@@ -53,7 +53,8 @@ public class productsGUI implements ActionListener{
 	public String data[][]=new String[100][5];
 
 	public  void getFromFile(){
-		 File directoryPath = new File("C:\\Users\\USER\\Desktop\\java\\oop sem peoject\\gui\\productInfo");
+		//  File directoryPath = new File("C:\\Users\\USER\\Desktop\\java\\oop sem peoject\\gui\\productInfo");
+		 File directoryPath = new File("E:\\ShopOnlineFiles\\productInfo\\");
       //List of all files and directories
       String contents[] = directoryPath.list();
       for(int i=0; i<contents.length; i++) {
@@ -62,7 +63,8 @@ public class productsGUI implements ActionListener{
         System.out.println(currentFile);
 
         try{
-        File myObj = new File("C:\\Users\\USER\\Desktop\\java\\oop sem peoject\\gui\\productInfo\\"+currentFile);
+        // File myObj = new File("C:\\Users\\USER\\Desktop\\java\\oop sem peoject\\gui\\productInfo\\"+currentFile);
+        File myObj = new File("E:\\ShopOnlineFiles\\productInfo\\"+currentFile);
 
         Scanner myReader = new Scanner(myObj);
          while (myReader.hasNextLine()) {
@@ -202,14 +204,16 @@ jsp.setBounds(40,340,650,300);
 public static void createFile(String productID, String productName, String productPrice, String stock, String productDescription){
 
 		 try {
-      File checkFile = new File("C:\\Users\\USER\\Desktop\\java\\oop sem peoject\\gui\\productInfo\\"+productID+".txt");
+    //   File checkFile = new File("C:\\Users\\USER\\Desktop\\java\\oop sem peoject\\gui\\productInfo\\"+productID+".txt");
+      File checkFile = new File("E:\\ShopOnlineFiles\\productInfo\\"+productID+".txt");
 
       if(checkFile.exists()){
       	exist=1;
 
       }
       else{
-      	      FileWriter myWriter = new FileWriter("C:\\Users\\USER\\Desktop\\java\\oop sem peoject\\gui\\productInfo\\"+productID+".txt");
+      	    //   FileWriter myWriter = new FileWriter("C:\\Users\\USER\\Desktop\\java\\oop sem peoject\\gui\\productInfo\\"+productID+".txt");
+      	      FileWriter myWriter = new FileWriter("E:\\ShopOnlineFiles\\productInfo\\"+productID+".txt");
       	      myWriter.write("ProductID:"+productID+"\n");
       	      
       	      myWriter.write("ProductName:"+productName+"\n");

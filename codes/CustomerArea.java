@@ -19,6 +19,8 @@ JTextField productIDCustomerText;
 	
 JLabel productQuantityCustomerLabel;
 JTextField productQuantityCustomerText;
+JLabel heading,usernameLabel,fullnameLabel,accesslevelLabel,dobLabel,addressLabel,phoneLabel,emailLabel,paymentPrefLabel;
+
 
 JButton addToCartBtn;
 
@@ -76,7 +78,9 @@ jt.setBounds(30,50,700,400);
 	}
 
 public  void getFromFile(){
-		 File directoryPath = new File("C:\\Users\\USER\\Desktop\\java\\oop sem peoject\\gui\\productInfo");
+		//  File directoryPath = new File("C:\\Users\\USER\\Desktop\\java\\oop sem peoject\\gui\\productInfo");
+		  File directoryPath = new File("E:\\ShopOnlineFiles\\productInfo");
+
       //List of all files and directories
       String contents[] = directoryPath.list();
       for(int i=0; i<contents.length; i++) {
@@ -85,7 +89,9 @@ public  void getFromFile(){
         System.out.println(currentFile);
 
         try{
-        File myObj = new File("C:\\Users\\USER\\Desktop\\java\\oop sem peoject\\gui\\productInfo\\"+currentFile);
+        // File myObj = new File("C:\\Users\\USER\\Desktop\\java\\oop sem peoject\\gui\\productInfo\\"+currentFile);
+        File myObj = new File("E:\\ShopOnlineFiles\\productInfo\\"+currentFile);
+
 
         Scanner myReader = new Scanner(myObj);
          while (myReader.hasNextLine()) {
@@ -117,7 +123,7 @@ public  void getFromFile(){
 
 	}
 
-public CustomerArea() { 
+public CustomerArea(String custUsername) { 
     f=new JFrame("Welcome to shopOnline-Customer");  
     f.setSize(800,600);
     
@@ -134,13 +140,6 @@ public CustomerArea() {
     p1.setLayout(null); 
     p2.setLayout(null);
     p3.setLayout(null);
-
-
-
-
-
-
-
 
 
 
@@ -186,6 +185,46 @@ public CustomerArea() {
 	p2.add(placeOrderBtn);
 
 
+  // Your Profile
+  Customer myCust = new Customer("customer");
+  myCust.readFromFile(custUsername);
+
+  heading = new JLabel("Customer Profile");
+  heading.setBounds(200,20,180,25);
+  p3.add(heading);
+
+  usernameLabel = new JLabel("Username: "+myCust.getUsername());
+  usernameLabel.setBounds(100,50,180,25);
+  p3.add(usernameLabel);
+
+  fullnameLabel = new JLabel("Full Name: "+myCust.getFullname());
+  fullnameLabel.setBounds(100,90,180,25);
+  p3.add(fullnameLabel);
+
+  accesslevelLabel = new JLabel("Access Level: "+myCust.getAccessLevel());
+  accesslevelLabel.setBounds(100,130,180,25);
+  p3.add(accesslevelLabel);
+
+  dobLabel = new JLabel("Date of Birth: "+myCust.getDOB());
+  dobLabel.setBounds(100,170,180,25);
+  p3.add(dobLabel);
+
+  addressLabel = new JLabel("Address: "+myCust.getAddress());
+  addressLabel.setBounds(100,210,180,25);
+  p3.add(addressLabel);
+
+  phoneLabel = new JLabel("Phone: "+myCust.getPhone());
+  phoneLabel.setBounds(100,250,180,25);
+  p3.add(phoneLabel);
+
+  emailLabel = new JLabel("Email: "+myCust.getEmail());
+  emailLabel.setBounds(100,290,180,25);
+  p3.add(emailLabel);
+
+  paymentPrefLabel = new JLabel("Payment Preference: "+myCust.getPaymentPreference());
+  paymentPrefLabel.setBounds(100,330,180,25);
+  p3.add(paymentPrefLabel);
+
 
 
     
@@ -194,7 +233,7 @@ public CustomerArea() {
 public void cartTabFileHandling(String productID , String productQuantity){
 
 	try{
-        File myObj = new File("C:\\Users\\USER\\Desktop\\java\\oop sem peoject\\gui\\productInfo\\"+productID+".txt");
+        File myObj = new File("E:\\ShopOnlineFiles\\productInfo\\"+productID+".txt");
 
         Scanner myReader = new Scanner(myObj);
          while (myReader.hasNextLine()) {
@@ -271,7 +310,7 @@ jt1.setBounds(30,50,700,400);
 
 public static void main(String[] args) {  
 	
-CustomerArea tabObj =   new CustomerArea(); 
+CustomerArea tabObj =   new CustomerArea("customerOne"); 
 tabObj.productTable();
 tabObj.createCartTable();
 

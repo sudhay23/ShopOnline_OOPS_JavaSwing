@@ -108,6 +108,10 @@ class AdminLogin extends JFrame implements ActionListener
                 {
                     overallStatus.setText("Status: "+"Login Successful.");
                     
+                    // Goto Admin Area GUI
+                    productsGUI obj=new productsGUI();  
+	                obj.productTable();
+                    
                 }
                 else
                 {

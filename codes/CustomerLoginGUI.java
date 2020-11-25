@@ -107,7 +107,10 @@ class CustLogin extends JFrame implements ActionListener
                 if(passwordText.getText().trim().equals(returningCustomer.getPassword()))
                 {
                     overallStatus.setText("Status: "+"Login Successful.");
-                    new CustProfileView(returningCustomer.getUsername());
+                    // new CustProfileView(returningCustomer.getUsername());
+                    CustomerArea tabObj =   new CustomerArea(returningCustomer.getUsername()); 
+                    tabObj.productTable();
+                    tabObj.createCartTable();
                 }
                 else
                 {
