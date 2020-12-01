@@ -12,6 +12,9 @@ public class productsGUI implements ActionListener{
 	JButton button;
 	JLabel headingLabel;
 	JTable jt = new JTable();
+		JTableHeader tableHeader = jt.getTableHeader();
+
+
 	  
 
 
@@ -175,6 +178,9 @@ public class productsGUI implements ActionListener{
 	}
 
 	public void productTable(){
+		 tableHeader.setBackground(Color.decode("#ADD8E6"));
+    tableHeader.setForeground(Color.black);
+
 
 		 jt.setBounds(0,40,650,300);
 
