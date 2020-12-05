@@ -123,6 +123,11 @@ class Customer extends Person implements objFileHandler
         this.accessLevel = accessLvl;
     }
 
+    public Customer()
+    {
+        System.out.println("Constructing Customer Object");
+    }
+
     private String paymentPreference;
     private String address;
 
@@ -348,6 +353,11 @@ class Admin extends Person implements objFileHandler
     public Admin(String accessLvl)
     {
         this.accessLevel = accessLvl;
+    }
+
+    public Admin()
+    {
+        System.out.println("Constructing Admin Object");
     }
 
     private float salary;
