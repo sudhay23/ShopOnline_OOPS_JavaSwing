@@ -116,7 +116,7 @@ interface objFileHandler {
     void writeToFile();
 }
 
-class Customer extends Person implements objFileHandler
+final class Customer extends Person implements objFileHandler
 {
     public Customer(String accessLvl)
     {
@@ -348,7 +348,7 @@ class Customer extends Person implements objFileHandler
 
 }
 
-class Admin extends Person implements objFileHandler
+final class Admin extends Person implements objFileHandler
 {
     public Admin(String accessLvl)
     {
